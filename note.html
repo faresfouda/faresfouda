@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Note Taking Page</title>
+</head>
+<body>
+
+    <h1>Note Taking Page</h1>
+
+    <textarea id="noteText" placeholder="Write your notes here..."></textarea>
+
+    <button id="saveButton" onclick="saveNote()">Save Note</button>
+
+    <div id="savedNotes">
+        <h2>Saved Notes:</h2>
+        <ul id="notesList"></ul>
+    </div>
+
+    <script>
+    	var notesArray = [];
+        function saveNote() {
+            var noteText = document.getElementById('noteText').value;
+            notesArray.push(noteText);
+            var notesList = document.getElementById('notesList');
+            notesList.innerHTML = '';
+            
+            notesArray.forEach(function(note) {
+                var li = document.createElement('li');
+                li.textContent = note;
+                notesList.appendChild(li);
+            });
+
+            alert('Note saved:\n' + noteText);
+        }
+    </script>
+
+</body>
+</html>
